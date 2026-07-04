@@ -1,5 +1,6 @@
 package com.Practice.myThirdProject.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -25,6 +28,8 @@ public class UserService {
 	
 	@Autowired
 	private JWTService jwtService;
+	
+	private static PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	public Optional<User> getentryByid(String id) {
 		
@@ -62,6 +67,14 @@ public class UserService {
 			 return jwtService.generateToken(user.getUserName());
 		 }
 		 return "Failure";
+	}
+
+	public void saveAdmin(User user) {
+		// TODO Auto-generated method stub
+		user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+		user.setRoles(Arrays.asList("ADMIN","USER"));
+		userRepo.save(user);
+		
 	}
 
 

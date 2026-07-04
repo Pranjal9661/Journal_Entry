@@ -52,7 +52,7 @@ public class UserController {
 		User userInDb = userService.findByUserName(userName);
 		if(userInDb!=null) {
 			userInDb.setUserName(user.getUserName());
-			userInDb.setUserPassword(user.getUserPassword());
+			userInDb.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
 			userService.saveEntry(userInDb);
 		}
 		

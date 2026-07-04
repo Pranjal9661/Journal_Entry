@@ -54,13 +54,24 @@ public class JournalService {
 		return repo.findAll();
 		
 	}
-
-	public void deleteEntryById(String id, String userName ) {
+	@Transactional
+	public Boolean deleteEntryById(String id, String userName ) {
 		// TODO Auto-generated method stub
-		User user = userService.findByUserName(userName);
-		 user.getJournalEntries().removeIf(x -> x.getId().equals(id));
-		  userService.saveEntry(user);
-		repo.deleteById(id);
+		try {
+			boolean removed = false;
+			User user = userService.findByUserName(userName);
+			  removed = user.getJournalEntries().removeIf(x -> x.getId().equals(id));
+			 if(removed) {
+				 userService.saveEntry(user);
+					repo.deleteById(id); 
+			 }
+			 return removed;
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+			throw new RuntimeException("An error Occured while removing the entry: " ,e);
+		}
+		  
 	}
 
 }
