@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
     <Appenders>
+        <!-- Console output -->
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
         </Console>
+
+        <!-- Rolling File output with daily rotation -->
+        <RollingFile name="RollingFileAppender"
+                     fileName="logs/app.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [PID:%pid] [Thread:%thread] %-5px %c{1}:%L - %m%n"/>
+            <Policies>
+                <!-- Rotate every day -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- Optional: rotate if file exceeds 10 MB -->
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
     </Appenders>
+
     <Loggers>
         <Root level="info">
             <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="RollingFileAppender"/>
         </Root>
     </Loggers>
 </Configuration>

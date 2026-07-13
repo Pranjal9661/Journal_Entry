@@ -66,14 +66,35 @@
   			  <version>0.11.4</version>
    			 <scope>runtime</scope>
 		</dependency>
-		<dependency>
-  			  <groupId>org.apache.logging.log4j</groupId>
-   			 <artifactId>log4j-core</artifactId>
-		</dependency>
-		<dependency>
-  		  <groupId>org.apache.logging.log4j</groupId>
-  			  <artifactId>log4j-api</artifactId>
-		</dependency>
+		 <!-- Spring Boot starter (exclude default Logback) -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+
+    <!-- Log4j2 core -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+    </dependency>
+
+    <!-- Log4j2 API -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+    </dependency>
+
+    <!-- SLF4J bridge so Spring Boot logs go through Log4j2 -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+    </dependency>
 		
 
 		<dependency>
