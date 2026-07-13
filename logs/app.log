@@ -96,3 +96,36 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2026-07-13 08:09:41 [PID:21516] [Host:%hostName] [Thread:http-nio-8080-exec-2] DEBUGx AnonymousAuthenticationFilter:119 - Set SecurityContextHolder to anonymous SecurityContext
 2026-07-13 08:09:41 [PID:21516] [Host:%hostName] [Thread:http-nio-8080-exec-2] DEBUGx DelegatingAuthenticationEntryPoint:79 - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
 2026-07-13 08:09:41 [PID:21516] [Host:%hostName] [Thread:http-nio-8080-exec-2] DEBUGx DelegatingAuthenticationEntryPoint:87 - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@5e2d74af
+2026-07-13 09:16:03 [PID:26268] [Thread:main] INFO x MyThirdProjectApplication:53 - Starting MyThirdProjectApplication using Java 21.0.8 with PID 26268 (D:\myThirdProject\target\classes started by pranj in D:\myThirdProject)
+2026-07-13 09:16:03 [PID:26268] [Thread:main] INFO x MyThirdProjectApplication:658 - The following 1 profile is active: "dev"
+2026-07-13 09:16:04 [PID:26268] [Thread:main] INFO x RepositoryConfigurationDelegate:147 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-07-13 09:16:05 [PID:26268] [Thread:main] INFO x RepositoryConfigurationDelegate:215 - Finished Spring Data repository scanning in 156 ms. Found 2 MongoDB repository interfaces.
+2026-07-13 09:16:06 [PID:26268] [Thread:main] INFO x TomcatWebServer:111 - Tomcat initialized with port 8080 (http)
+2026-07-13 09:16:06 [PID:26268] [Thread:main] INFO x ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 2693 ms
+2026-07-13 09:16:08 [PID:26268] [Thread:main] INFO x InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:114 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServicesImp
+2026-07-13 09:16:08 [PID:26268] [Thread:main] DEBUGx DefaultSecurityFilterChain:72 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-07-13 09:16:08 [PID:26268] [Thread:main] INFO x TomcatWebServer:243 - Tomcat started on port 8080 (http) with context path '/'
+2026-07-13 09:16:08 [PID:26268] [Thread:main] INFO x MyThirdProjectApplication:59 - Started MyThirdProjectApplication in 5.819 seconds (process running for 7.359)
+2026-07-13 09:16:22 [PID:26268] [Thread:http-nio-8080-exec-2] INFO x DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2026-07-13 09:16:22 [PID:26268] [Thread:http-nio-8080-exec-2] INFO x DispatcherServlet:554 - Completed initialization in 4 ms
+2026-07-13 09:16:22 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx FilterChainProxy:223 - Securing POST /api/public/verify
+2026-07-13 09:16:22 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx AnonymousAuthenticationFilter:119 - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-13 09:16:22 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx FilterChainProxy:227 - Secured POST /api/public/verify
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx DaoAuthenticationProvider:136 - Failed to find user 'Hemant'
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx DaoAuthenticationProvider:136 - Failed to find user 'Hemant'
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx DelegatingAuthenticationEntryPoint:79 - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx DelegatingAuthenticationEntryPoint:87 - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d36fb29
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx FilterChainProxy:223 - Securing POST /error
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx AnonymousAuthenticationFilter:119 - Set SecurityContextHolder to anonymous SecurityContext
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx DelegatingAuthenticationEntryPoint:79 - Trying to match using RequestHeaderRequestMatcher [expectedHeaderName=X-Requested-With, expectedHeaderValue=XMLHttpRequest]
+2026-07-13 09:16:23 [PID:26268] [Thread:http-nio-8080-exec-2] DEBUGx DelegatingAuthenticationEntryPoint:87 - No match found. Using default entry point org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint@6d36fb29
+2026-07-13 09:17:28 [PID:26392] [Thread:main] INFO x MyThirdProjectApplication:53 - Starting MyThirdProjectApplication using Java 21.0.8 with PID 26392 (D:\myThirdProject\target\classes started by pranj in D:\myThirdProject)
+2026-07-13 09:17:28 [PID:26392] [Thread:main] INFO x MyThirdProjectApplication:658 - The following 1 profile is active: "dev"
+2026-07-13 09:17:29 [PID:26392] [Thread:main] INFO x RepositoryConfigurationDelegate:147 - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2026-07-13 09:17:29 [PID:26392] [Thread:main] INFO x RepositoryConfigurationDelegate:215 - Finished Spring Data repository scanning in 90 ms. Found 2 MongoDB repository interfaces.
+2026-07-13 09:17:30 [PID:26392] [Thread:main] INFO x TomcatWebServer:111 - Tomcat initialized with port 8080 (http)
+2026-07-13 09:17:30 [PID:26392] [Thread:main] INFO x ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 1873 ms
+2026-07-13 09:17:31 [PID:26392] [Thread:main] INFO x InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:114 - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServicesImp
+2026-07-13 09:17:31 [PID:26392] [Thread:main] DEBUGx DefaultSecurityFilterChain:72 - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, BasicAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-07-13 09:17:32 [PID:26392] [Thread:main] INFO x TomcatWebServer:243 - Tomcat started on port 8080 (http) with context path '/'
+2026-07-13 09:17:32 [PID:26392] [Thread:main] INFO x MyThirdProjectApplication:59 - Started MyThirdProjectApplication in 4.864 seconds (process running for 5.907)
