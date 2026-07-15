@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Practice.myThirdProject.Entity.User;
 import com.Practice.myThirdProject.Service.UserService;
+import com.Practice.myThirdProject.Service.WeatherService;
+import com.Practice.myThirdProject.api.response.WeatherResponse;
 
 
 @RestController
@@ -26,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private WeatherService weatherService;
 	
 	private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
@@ -71,6 +76,12 @@ public class UserController {
 			// TODO: handle exception
 		}		
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+	
+	@GetMapping("/getWeather")
+	public ResponseEntity<?> getMapping(){
+		WeatherResponse todayWeather = weatherService.getWeather("INDIA");
+		return new ResponseEntity<> ("Hi, Today's templearture in C is: " + todayWeather.getCurrent().getTempC() + " and in Farenheit is: " + todayWeather.getCurrent().getTempF(),HttpStatus.OK);
 	}
 	
 	
