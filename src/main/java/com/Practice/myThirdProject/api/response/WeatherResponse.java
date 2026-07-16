@@ -1,5 +1,7 @@
 package com.Practice.myThirdProject.api.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class WeatherResponse {
     private Location location;
     private Current current;
@@ -27,7 +29,29 @@ public class WeatherResponse {
 
     // Nested Location class
     public static class Location {
+    	@JsonProperty("name")
         private String name;
+    	
+    	@JsonProperty("region")
+        private String region;
+    	
+    	@JsonProperty("country")
+        private String country;
+    	
+    	@JsonProperty("lat")
+        private double lat;
+    	
+    	@JsonProperty("lon")
+        private double lon;
+    	
+    	@JsonProperty("tz_id")
+        private String tzId;
+    	
+    	@JsonProperty("localtime_epoch")
+        private int localtimeEpoch;
+    	
+    	@JsonProperty("localtime")
+        private String localtime;
         public String getName() {
 			return name;
 		}
@@ -76,49 +100,18 @@ public class WeatherResponse {
 		public void setLocaltime(String localtime) {
 			this.localtime = localtime;
 		}
-		private String region;
-        private String country;
-        private double lat;
-        private double lon;
-        private String tzId;
-        private int localtimeEpoch;
-        private String localtime;
-
-        // getters/setters
-    }
-
-    // Nested Condition class
-    public static class Condition {
-        private String text;
-        private String icon;
-        private int code;
-		public String getText() {
-			return text;
-		}
-		public void setText(String text) {
-			this.text = text;
-		}
-		public String getIcon() {
-			return icon;
-		}
-		public void setIcon(String icon) {
-			this.icon = icon;
-		}
-		public int getCode() {
-			return code;
-		}
-		public void setCode(int code) {
-			this.code = code;
-		}
+		
 
         // getters/setters
     }
 
     // Nested Current class
     public static class Current {
+    	@JsonProperty("temp_c")
         private double tempC;
+    	
+    	@JsonProperty("temp_f")
         private double tempF;
-        private Condition condition;
 		public double getTempC() {
 			return tempC;
 		}
@@ -130,12 +123,6 @@ public class WeatherResponse {
 		}
 		public void setTempF(double tempF) {
 			this.tempF = tempF;
-		}
-		public Condition getCondition() {
-			return condition;
-		}
-		public void setCondition(Condition condition) {
-			this.condition = condition;
 		}
 
         // getters/setters

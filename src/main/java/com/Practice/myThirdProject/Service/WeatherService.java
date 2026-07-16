@@ -14,13 +14,10 @@ public class WeatherService {
 	
 	private final String apiKey;
 	
-	private final String city;
-	
 	private static String API="https://api.weatherapi.com/v1/current.json?key=apikey&q=city";
 	
-	public WeatherService(@Value("${my.weather.api.key}") String apiKey,@Value("${my.weather.api.city}") String city) {
+	public WeatherService(@Value("${my.weather.api.key}") String apiKey) {
 		this.apiKey = apiKey;
-		this.city = city;
 	}
 	
 	@Autowired
@@ -33,6 +30,6 @@ public class WeatherService {
 		return weatherResponse;
 	}
 	
-	
+	 
 	
 }

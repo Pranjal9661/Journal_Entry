@@ -78,10 +78,11 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
-	@GetMapping("/getWeather")
-	public ResponseEntity<?> getMapping(){
-		WeatherResponse todayWeather = weatherService.getWeather("INDIA");
-		return new ResponseEntity<> ("Hi, Today's templearture in C is: " + todayWeather.getCurrent().getTempC() + " and in Farenheit is: " + todayWeather.getCurrent().getTempF(),HttpStatus.OK);
+	@GetMapping("/getWeather/{city}")
+	public ResponseEntity<?> getMapping(@PathVariable String city){
+		WeatherResponse todayWeather = weatherService.getWeather(city);
+		String response = "Hi, Today's templearture in " + todayWeather.getLocation().getName() + ","  + todayWeather.getLocation().getCountry()   + " in C is: " + todayWeather.getCurrent().getTempC() + " and in Farenheit is: " + todayWeather.getCurrent().getTempF() ;
+		return new ResponseEntity<> (response,HttpStatus.OK);
 	}
 	
 	
