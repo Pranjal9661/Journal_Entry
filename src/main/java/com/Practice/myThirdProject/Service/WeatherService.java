@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.Practice.myThirdProject.api.response.WeatherResponse;
+import com.Practice.myThirdProject.cache.AppCache;
 
 @Service
 public class WeatherService {
 	
 	private final String apiKey;
 	
-	private static String API="https://api.weatherapi.com/v1/current.json?key=apikey&q=city";
+	
 	
 	public WeatherService(@Value("${my.weather.api.key}") String apiKey) {
 		this.apiKey = apiKey;
@@ -23,11 +24,15 @@ public class WeatherService {
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	
+	@Autowired
+	private AppCache appCache;
+	
 	public WeatherResponse getWeather(String city) {
-		String finalAPI = API.replace("apikey",apiKey).replace("city",city);
+		String finalAPI = appCache.APP_CACHE.get("API_URL").replace("<apikey>",apiKey).replace("<city>",city);
 		ResponseEntity<WeatherResponse> res  = restTemplate.exchange(finalAPI , HttpMethod.GET,null,WeatherResponse.class);
 		WeatherResponse weatherResponse = res.getBody();
-		return weatherResponse;
+ 		return weatherResponse;
 	}
 	
 	 
